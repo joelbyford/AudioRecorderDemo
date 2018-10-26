@@ -110,6 +110,11 @@ namespace AudioRecorderDemo
         }
         private async void recordBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Show Status Change
+            statusTxt.Text = "Recording";
+            mainPanel.Background = (SolidColorBrush)Resources["RedColor"];
+            stopBtn.IsEnabled = true;
+
             if (record)
             {
                 //already recored process
@@ -129,12 +134,22 @@ namespace AudioRecorderDemo
 
         private async void stopBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Show Status Change
+            statusTxt.Text = "Stopped";
+            mainPanel.Background = (SolidColorBrush)Resources["GrayColor"];
+            stopBtn.IsEnabled = false;
+
             await capture.StopRecordAsync();
             record = false;
         }
 
         private async void playBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Show Status Change
+            statusTxt.Text = "Playing";
+            mainPanel.Background = (SolidColorBrush)Resources["GreenColor"];
+            
+
             await PlayRecordedAudio(Dispatcher);
         }
     }

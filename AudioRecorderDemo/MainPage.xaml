@@ -11,14 +11,22 @@
         <AppBar IsOpen="True" IsSticky="True">
            
                 <StackPanel Orientation="Horizontal">
-                <AppBarButton x:Name="recordBtn" Label="Record" Icon="Microphone"  Click="recordBtn_Click"></AppBarButton>
-                <AppBarButton x:Name="stopBtn" Label="Stop" Icon="Stop" Click="stopBtn_Click"></AppBarButton>
-                <AppBarButton x:Name="playBtn" Label="Play" Icon="Play" Click="playBtn_Click"></AppBarButton>
+                <AppBarButton x:Name="recordBtn" Label="Record" Icon="Microphone"  Click="recordBtn_Click" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False"></AppBarButton>
+                <AppBarButton x:Name="stopBtn" Label="Stop" Icon="Stop" Click="stopBtn_Click" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsEnabled="False"></AppBarButton>
+                <AppBarButton x:Name="playBtn" Label="Play" Icon="Play" Click="playBtn_Click" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False"></AppBarButton>
                 </StackPanel>
             </AppBar>
     </Page.BottomAppBar>
-                
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    </Grid>
+    <StackPanel x:Name="mainPanel"  Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock x:Name="statusTxt">Stopped</TextBlock>
+        
+    </StackPanel>
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="GreenColor" Color="Green" />
+        <SolidColorBrush x:Key="RedColor" Color="Red" />
+        <SolidColorBrush x:Key="GrayColor" Color="LightGray" />
+    </Page.Resources>
+
 </Page>
